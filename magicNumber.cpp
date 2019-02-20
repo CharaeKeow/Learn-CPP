@@ -6,7 +6,7 @@ int main()
 {
 	int magic, guess;
 
-	magic = rand();
+	magic = rand(); //Remember, rand() require <cstdlib>
 
 	cout << "Enter your guess: ";
 	cin >> guess;
