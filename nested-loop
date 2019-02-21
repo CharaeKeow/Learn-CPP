@@ -1,0 +1,18 @@
+//Nested Loop
+//The following program will utilze the nested loop to find the prime numbers from 2 to 1000. Cheers :)
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int i, j;
+
+	for (i = 2; i < 1000; i++) {
+		for (j = 2; j <= (i / j); j++) {
+			if (!(i%j)) break; //If factor is found, not prime :(			
+		}
+		if (j > (i / j)) cout << i << " is prime number\n";
+	}
+	return 0;
+}
