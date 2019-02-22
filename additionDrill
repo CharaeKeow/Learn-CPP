@@ -1,0 +1,49 @@
+//A simple addition drill program to demonstrate difference between global and local scope.
+
+#include <iostream>
+#include <cstdlib>
+using namespace std;
+
+void drill();
+
+int count;
+int num_right;
+
+int main() 
+{
+	cout << "How many practice problems: ";
+	cin >> count;
+
+	num_right = 0;
+	do {
+		drill();
+		times--;
+	} while (count);
+	cout << "You got " << num_right << " right." << endl;
+
+	return 0;	
+}
+
+void drill()
+{
+	int count; //local var
+
+	int a, b, ans;
+
+	//Generate two numbers between 0 and 99;
+	a = rand() % 100;
+	b = rand() % 100;
+
+	//The user gets three tries to get it right.
+	for (count = 0; count < 3; count++) {
+		cout << "What is " << a << " + " << b << "? ";
+		cin >> ans;
+		if (ans == a + b) {
+			cout << "Right\n";
+			num_right++;
+			return;
+		}
+	}
+	cout << "You've used up all your tries.\n";
+	cout << "The answer is " << a + b << endl;
+}
