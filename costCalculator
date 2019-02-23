@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+void main()
+{
+	const int size = 5;
+	double price[size], cost[size];
+	double total = 0, average = 0;
+	int unit[size];
+
+	cout << "Enter price and unit for " << size << " item: \n";
+
+	for (int i = 0; i < size; i++) {
+		cout << "Item price " << i + 1 << ": ";
+		cin >> price[i];
+
+		cout << "Item unit " << i + 1 << ": ";
+		cin >> unit[i];
+
+		cost[i] = price[i] * unit[i];
+		total += cost[i];
+		average = total / size;
+	}
+
+	cout << "\n\tPrice" << "\tUnit" << "\tCost\n";
+	for (int a = 0; a < size; a++) {
+		cout << "\t" << price[a] << "\t" << unit[a] << "\t" << cost[a] << "\n";
+	}
+
+	cout << "\nTotal\t\t\t" << total << endl;
+	cout << "\nAverage : " << average << endl;
+}
