@@ -1,0 +1,86 @@
+#ifndef STACK_H
+#define STACK_H
+
+const int Size = 100;
+template <class T>
+class Stack
+{
+private:
+	int top;
+	T array[Size];
+public:
+	Stack();
+	void Push(T);
+	void Pop();
+
+	//return the top item
+	T StackTop();
+
+	//check for empty stack
+	bool Empty();
+};
+
+#endif;
+
+#include <iostream>
+#include "stack.h"
+using namespace std;
+
+template <class T>
+Stack <T>::Stack()
+{
+	top = -1;
+}
+template <class T>
+void Stack<T>::Push(T value)
+{
+	if (top < Size)
+	{
+		top++;
+		array[top] = value;
+	}
+	else
+		cout << "Overflow!!!";
+}
+
+template <class T>
+void Stack<T>::Pop()
+{
+	if (!Empty())
+		top--;
+	else
+		cout << "Underflow";
+}
+template <class T>
+T Stack<T>::StackTop()
+{
+	if (Empty())
+		return -1;
+	else
+		return array[top];
+}
+template <class T>
+bool Stack<T>::Empty()
+{
+	//true if stack is empty
+	return (top == -1);
+}
+
+template class Stack<int>;
+
+#include <iostream>
+#include "stack.h"
+using namespace std;
+
+void main()
+{
+	Stack <int> one;
+	one.Push(40);
+	one.Push(30);
+	one.Push(20);
+	cout << "Top:" <<
+		one.StackTop();
+	one.Pop();
+	cout << "\nTop now:" <<
+		one.StackTop();
+}
